@@ -1,14 +1,4 @@
-
-const users = [
-  {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'Alejandro',
-    email: 'tor.cas.alejandro@gmail.com',
-    password: '123456',
-  },
-];
-
-const pokemon = [
+const pokemons = [
   // Bulvasaur
   {
     pokedex_number: 1,
@@ -24,7 +14,7 @@ const pokemon = [
     special_defense: 65,
     speed: 45,
     pre_evolution: null,
-    evolution: pokemon[1].pokedex_number
+    evolution: 2
   },
   // Ivisaur
   {
@@ -40,8 +30,8 @@ const pokemon = [
     special_attack: 80,
     special_defense: 80,
     speed: 60,
-    pre_evolution: pokemon[0].pokedex_number,
-    evolution: pokemon[2].pokedex_number
+    pre_evolution: 1,
+    evolution: 3
   },
   // Venusaur
   {
@@ -57,7 +47,7 @@ const pokemon = [
     special_attack: 100,
     special_defense: 100,
     speed: 80,
-    pre_evolution: pokemon[1].pokedex_number,
+    pre_evolution: 2,
     evolution: null
   },
   // Charmander
@@ -75,7 +65,7 @@ const pokemon = [
     special_defense: 50,
     speed: 65,
     pre_evolution: null,
-    evolution: pokemon[4].pokedex_number
+    evolution: 5
   },
   // Charmeleon
   {
@@ -91,8 +81,8 @@ const pokemon = [
     special_attack: 80,
     special_defense: 65,
     speed: 80,
-    pre_evolution: pokemon[3].pokedex_number,
-    evolution: pokemon[5].pokedex_number
+    pre_evolution: 4,
+    evolution: 6
   },
   // Charizard
   {
@@ -108,7 +98,7 @@ const pokemon = [
     special_attack: 109,
     special_defense: 85,
     speed: 100,
-    pre_evolution: pokemon[4].pokedex_number,
+    pre_evolution: 5,
     evolution: null
   },
   // Squirtle
@@ -126,7 +116,7 @@ const pokemon = [
     special_defense: 64,
     speed: 43,
     pre_evolution: null,
-    evolution: pokemon[7].pokedex_number
+    evolution: 8
   },
   // Wartortle
   {
@@ -142,8 +132,8 @@ const pokemon = [
     special_attack: 65,
     special_defense: 80,
     speed: 58,
-    pre_evolution:  pokemon[6].pokedex_number,
-    evolution: pokemon[8].pokedex_number
+    pre_evolution:  7,
+    evolution: 9
   },
   // Blastoise
   {
@@ -159,7 +149,7 @@ const pokemon = [
     special_attack: 85,
     special_defense: 105,
     speed: 78,
-    pre_evolution:  pokemon[7].pokedex_number,
+    pre_evolution: 8,
     evolution: null
   },
   // Caterpie
@@ -177,7 +167,7 @@ const pokemon = [
     special_defense: 20,
     speed: 45,
     pre_evolution:  null,
-    evolution: pokemon[10].pokedex_number
+    evolution: 11
   },
   // Metapod
   {
@@ -193,8 +183,8 @@ const pokemon = [
     special_attack: 25,
     special_defense: 25,
     speed: 30,
-    pre_evolution:  pokemon[9].pokedex_number,
-    evolution: pokemon[11].pokedex_number
+    pre_evolution: 10,
+    evolution: 12
   },
   // Buterfree
   {
@@ -210,7 +200,7 @@ const pokemon = [
     special_attack: 90,
     special_defense: 80,
     speed: 70,
-    pre_evolution:  pokemon[10].pokedex_number,
+    pre_evolution: 11,
     evolution: null
   },
   // Weedle
@@ -227,8 +217,8 @@ const pokemon = [
     special_attack: 20,
     special_defense: 20,
     speed: 50,
-    pre_evolution:  null,
-    evolution: pokemon[13].pokedex_number
+    pre_evolution: null,
+    evolution: 14
   },
   // Kakuna
   {
@@ -244,8 +234,8 @@ const pokemon = [
     special_attack: 25,
     special_defense: 25,
     speed: 35,
-    pre_evolution:  pokemon[12].pokedex_number,
-    evolution: pokemon[14].pokedex_number
+    pre_evolution: 13,
+    evolution: 15
   },
   // Beedrill
   {
@@ -261,7 +251,7 @@ const pokemon = [
     special_attack: 45,
     special_defense: 80,
     speed: 75,
-    pre_evolution:  pokemon[13].pokedex_number,
+    pre_evolution: 14,
     evolution: null
   },
   // Pidgey
@@ -279,7 +269,7 @@ const pokemon = [
     special_defense: 35,
     speed: 56,
     pre_evolution: null,
-    evolution: pokemon[16].pokedex_number
+    evolution: 17
   },
   // Pidgeotto
   {
@@ -295,8 +285,8 @@ const pokemon = [
     special_attack: 50,
     special_defense: 50,
     speed: 71,
-    pre_evolution: pokemon[15].pokedex_number,
-    evolution: pokemon[17].pokedex_number
+    pre_evolution: 16,
+    evolution: 18
   },
   // Pidgeot
   {
@@ -312,7 +302,7 @@ const pokemon = [
     special_attack: 70,
     special_defense: 70,
     speed: 101,
-    pre_evolution: pokemon[16].pokedex_number,
+    pre_evolution: 17,
     evolution: null
   },
   // Rattata
@@ -330,7 +320,7 @@ const pokemon = [
     special_defense: 35,
     speed: 72,
     pre_evolution: null,
-    evolution: pokemon[19].pokedex_number
+    evolution: 20
   },
   // Raticate
   {
@@ -346,7 +336,7 @@ const pokemon = [
     special_attack: 50,
     special_defense: 70,
     speed: 97,
-    pre_evolution: pokemon[18].pokedex_number,
+    pre_evolution: 19,
     evolution: null
   },
   // Spearow
@@ -364,7 +354,7 @@ const pokemon = [
     special_defense: 31,
     speed: 70,
     pre_evolution: null,
-    evolution: pokemon[21].pokedex_number
+    evolution: 22
   },
   // Fearow
   {
@@ -380,7 +370,7 @@ const pokemon = [
     special_attack: 61,
     special_defense: 61,
     speed: 100,
-    pre_evolution: pokemon[20].pokedex_number,
+    pre_evolution: 21,
     evolution: null
   },
   // Ekans
@@ -398,7 +388,7 @@ const pokemon = [
     special_defense: 54,
     speed: 55,
     pre_evolution: null,
-    evolution: pokemon[23].pokedex_number
+    evolution: 24
   },
   // Arbok
   {
@@ -414,7 +404,7 @@ const pokemon = [
     special_attack: 65,
     special_defense: 79,
     speed: 80,
-    pre_evolution: pokemon[22].pokedex_number,
+    pre_evolution: 23,
     evolution: null
   },
   // Pikachu
@@ -432,7 +422,7 @@ const pokemon = [
     special_defense: 50,
     speed: 90,
     pre_evolution: null,
-    evolution: pokemon[25].pokedex_number
+    evolution: 26
   },
   // Raichu
   {
@@ -448,12 +438,11 @@ const pokemon = [
     special_attack: 90,
     special_defense: 80,
     speed: 110,
-    pre_evolution: pokemon[24].pokedex_number,
+    pre_evolution: 25,
     evolution: null
   }
 ];
 
-export default {
-  users,
-  pokemon
+module.exports = {
+  pokemons
 };

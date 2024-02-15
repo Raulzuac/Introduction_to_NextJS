@@ -1,10 +1,3 @@
-export type User = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-}
-
 export type Pokemon = {
   pokedex_number: number;
   name: string;
