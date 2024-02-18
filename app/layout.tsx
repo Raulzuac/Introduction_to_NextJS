@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SpaceX",
-  description: "Home page de Space X",
+  title: "Learn Next",
+  description: "Landing Page of NextJS pokedex proyect",
 };
 
 
@@ -17,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-black text-white">
-      <body className={`${inter.className} flex`}>
+      <body className='flex w-full h-full align-middle justify-center p-5'>
         {children}
       </body>
     </html>

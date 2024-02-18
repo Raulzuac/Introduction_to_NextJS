@@ -1,9 +1,9 @@
 const pokemons = [
-  // Bulvasaur
+  // Bulbasaur
   {
     pokedex_number: 1,
-    name: 'Bulvasaur',
-    image_url: '/pokemon/Bulvasur.png',
+    name: 'Bulbasaur',
+    image_url: '/pokemon/Bulbasaur.png',
     description: "Una rara semilla fue plantada en su espalda al nacer. La planta brota y crece con este Pokémon.",
     type_1: 'planta',
     type_2: 'veneno',
@@ -16,11 +16,11 @@ const pokemons = [
     pre_evolution: null,
     evolution: 2
   },
-  // Ivisaur
+  // Ivysaur
   {
     pokedex_number: 2,
-    name: 'Ivisaur',
-    image_url: '/pokemon/Ivisaur.png',
+    name: 'Ivysaur',
+    image_url: '/pokemon/Ivysaur.png',
     description: "Cuando el bulbo de su espalda crece, parece no poder ponerse de pie sobre sus patas traseras.",
     type_1: 'planta',
     type_2: 'veneno',
@@ -186,11 +186,11 @@ const pokemons = [
     pre_evolution: 10,
     evolution: 12
   },
-  // Buterfree
+  // Butterfree
   {
     pokedex_number: 12,
-    name: 'Buterfree',
-    image_url: '/pokemon/Buterfree.png',
+    name: 'Butterfree',
+    image_url: '/pokemon/Butterfree.png',
     description: "En combate, aletea a gran velocpokedex_numberad para lanzar al aire sus tóxicos polvillos.",
     type_1: 'bicho',
     type_2: "volador",
