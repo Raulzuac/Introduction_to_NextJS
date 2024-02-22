@@ -20,11 +20,12 @@ const Carousel = ({ images }: HomeCarouselProps) => {
           <Link 
             key={key}
             href={`/pokedex/${key}`}
-            className="bg-black bg-opacity-25 rounded-full relative min-w-0 p-10 flex-grow-0 flex-shrink-0 " 
+            className="bg-black bg-opacity-25 rounded-full relative min-w-0 p-5 md:p-7 lg:p-10 flex-grow-0 flex-shrink-0" 
           >
             <Image
-              width={400}
-              height={400}
+              className='h-60 w-60 lg:h-80 lg:w-80'
+              width={1000}
+              height={1000}
               src={src}
               alt={alt}
             />

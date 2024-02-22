@@ -27,7 +27,7 @@ const TypeTag = ({ type }: TypeTagProps) => {
     'dragón': "bg-blue-800"
   }
 
-  return <span className={`p-2 flex-grow text-center capitalize rounded-full font-bold text-lg ${colors[type]}`}>{type}</span>
+  return <span className={`p-1 md:p-2 lg:px-5 text-center capitalize rounded-md md:rounded-full font-bold text-sm md:text-md lg:text-lg ${colors[type]}`}>{type}</span>
 }
 
 export default TypeTag

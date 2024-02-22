@@ -23,17 +23,17 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
 
   return (
     <Link href={`/pokedex/${pokedex_number}`}>
-      <div className="rounded-lg p-4 bg-gray-400 text-black overflow-hidden flex flex-col justify-center gap-3">
-        <span className="text-lg font-extrabold">#{formatPokedexNumber(pokedex_number)} / {name}</span>
-        <div className="bg-black rounded-full bg-opacity-60 p-5">
+      <div className="rounded-lg p-4 bg-gray-400 text-black overflow-hidden grid grid-cols-3 md:grid-cols-1 justify-center gap-3 h-full">
+        <span className="text-sm md:text-md lg:text-lg font-extrabold col-span-2 md:col-span-1 text-center">#{formatPokedexNumber(pokedex_number)} / {name}</span>
+        <div className="bg-black rounded-full lg:rounded-3xl bg-opacity-60 p-1 md:p-3 lg:p-5 row-span-2 md:row-span-1">
           <Image
             alt={image_url}
             src={image_url}
-            width={150}
-            height={150}
+            width={600}
+            height={600}
           />
         </div>
-        <div className="flex w-full gap-2">
+        <div className="flex w-full gap-2 justify-center items-center px-3 col-span-2 md:col-span-1">
           <TypeTag type={type_1} />
           {!!type_2 && <TypeTag type={type_2} />}
         </div>
