@@ -10,7 +10,7 @@ export async function fetchAllPokemon() {
 
     console.log('Fetching all pokemon data...');
     // ! No hacer en produción
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Pokemon>`SELECT * FROM pokemon ORDER BY pokedex_number ASC`;
 
@@ -26,12 +26,10 @@ export async function fetchPokemonByPokedexNumber(pokedex_number: number) {
 
   try {
     console.log(`Fetching pokemon ${pokedex_number} data...`);
-    // ! No hacer en produción
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Pokemon>`SELECT * FROM pokemon WHERE pokedex_number = ${pokedex_number}`;
 
-    console.log("[DATOS DEL POKEMON]",data.rows)
+    console.log(data.rows[0])
 
     return data.rows[0];
   } catch (error) {
@@ -49,13 +47,9 @@ export async function fetchFilteredPokemons(
   noCache();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
-  console.log(`Fetching filtered pokemon data ${query}...`);
-  // ! No hacer en produción
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-
   try {
+    console.log(`Fetching filtered pokemon data ${query}...`);
 
-    console.log(`[[QUERY STRING]] SELECT * FROM pokemon WHERE name ILIKE \`\%${query}\%\``)
     const pokemon = await sql<Pokemon>`
     SELECT * FROM pokemon WHERE 
       name ILIKE ${`%${query}%`} OR

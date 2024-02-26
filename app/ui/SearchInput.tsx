@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebouncedCallback } from 'use-debounce'
 import { Search } from 'lucide-react'
 
-export default function SearchInput({ placeholder }: { placeholder: string }) {
+export default function SearchInput({ placeholder }: { placeholder?: string }) {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
   const pathname = usePathname()
@@ -31,8 +31,9 @@ export default function SearchInput({ placeholder }: { placeholder: string }) {
       </label>
       <input
         className="peer block w-full rounded-md border font-medium border-gray-200 py-[9px] pl-10 text-md outline-2 placeholder:text-gray-500"
-        placeholder={placeholder}
+        placeholder={placeholder || 'Buscar'}
         onChange={(e) => {
+          console.log(e.target.value)
           handleSearch(e.target.value);
         }}
         defaultValue={searchParams.get('query')?.toString()}

@@ -1,3 +1,5 @@
+import { PokemonTableSqueleton } from "@/app/ui/Squeletons";
+
 export default function Loading() {
-    return <p>Cargando</p>
+    return <PokemonTableSqueleton/>
 }
