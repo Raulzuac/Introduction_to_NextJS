@@ -27,8 +27,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
+/app/public/v0 by Vercel_files
 .vercel
 
 # typescript

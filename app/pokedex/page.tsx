@@ -1,3 +1,11 @@
+//  ? CREAR RUTA POKEDEX
+// export default function Page() {
+//   return (
+//     <div>Pokedex page</div>
+//   )
+// }
+
+
 import { fetchPokemonPages } from '@/app/lib/querys'
 import SearchInput from '@/app/ui/SearchInput'
 import PokemonPage from "@/app/ui/PokemonPage"

@@ -21,20 +21,31 @@ export default async function Home() {
 
             <Link
               className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-              href="/pokedex"
+              // ? AÑADIR RUTA A POKEDEX PAGE
+              href="/"
             >
               Empezar
             </Link>
           </div>
           <div className="mx-auto relative overflow-hidden  aspect-square md:aspect-video rounded-tl-lg lg:rounded-tl-none lg:rounded-tr-lg lg:col-span-2">
+            
+            {/* Añadir magen */}
+            
+            {/* <Image
+              alt="Landing page pokedex image"
+              className="object-cover min-h-auto min-w-screen rounded-lg aspect-square block md:hidden"
+              height={545}
+              width={365}
+              src="/smPokedex.jpg"
+            />
             <Image
               alt="Landing page pokedex image"
-              className="object-cover min-h-full min-w-full rounded-lg aspect-video"
+              className="object-cover min-h-full min-w-full rounded-lg aspect-video  md:block"
               height={1080}
               width={1920}
               src="/pokedex.jpeg"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
+            />  absolute inset-0 */}
+            <div className=" flex items-center justify-center">
               <Suspense fallback={<PokemonCarouselSqueleton />}>
                 <PokemonCarousel />
               </Suspense>

@@ -23,7 +23,7 @@ const NavLinks = () => {
     <>
       {links.map((link) => {
         return (
-          <Link
+          <a
             key={link.name}
             href={link.href}
             className={
@@ -34,7 +34,7 @@ const NavLinks = () => {
             }
           >
             <p className='text-md'>{link.name}</p>
-          </Link>
+          </a>
         );
       })}
     </>
