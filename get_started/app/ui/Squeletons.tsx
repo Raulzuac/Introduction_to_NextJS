@@ -5,7 +5,7 @@ export function PokemonCarouselSqueleton() {
       <div className='animate-pulse rounded-full bg-gray-100 min-h-[450px] min-w-[450px]'/>
       <div className='animate-pulse rounded-full bg-gray-100 min-h-[450px] min-w-[450px]'/>
     </div>
-  );
+  )
 }
 
 export function PokemonTableSqueleton() {
@@ -16,9 +16,8 @@ export function PokemonTableSqueleton() {
       <div className='animate-pulse rounded-xl bg-gray-100 min-h-[450px] min-w-[450px]'/>
       <div className='animate-pulse rounded-xl bg-gray-100 min-h-[450px] min-w-[450px]'/>
       <div className='animate-pulse rounded-xl bg-gray-100 min-h-[450px] min-w-[450px]'/>
-      <div className='animate-pulse rounded-xl bg-gray-100 min-h-[450px] min-w-[450px]'/>
     </div>
-  );
+  )
 }
 export function PokemonScreenSqueleton() {
   return (
@@ -29,5 +28,5 @@ export function PokemonScreenSqueleton() {
       <div className='animate-pulse rounded-xl bg-gray-100 min-h-[50px] min-w-full'/>
       <div className='animate-pulse rounded-xl bg-gray-100 min-h-[50px] min-w-full'/>
     </div>
-  );
+  )
 }

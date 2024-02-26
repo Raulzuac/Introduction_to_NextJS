@@ -59,6 +59,8 @@ Ahora que sabes crear un proyecto, haz un fork de este repositorio y clonalo par
 
 ### Explorando el proyecto
 
+cd get_started
+
 - Estructura de archivos
 
 /app: Contiene todas las rutas componentes y lógica para tu aplicación equi es donde más trabajarás.
@@ -125,6 +127,28 @@ Seteando el ancho y el alto ayuda e evitar el desplazamiento de la interfaz (lay
 
 Utiliza las clases de tailwind para mostrar las imágenes dependiendo del tamaño de la pantalla. 
 
+```
+ <Image
+    alt="Landing page pokedex image"
+    className="object-cover min-h-auto min-w-screen rounded-lg aspect-square block md:hidden"
+    height={545}
+    width={365}
+    src="/smPokedex.jpg"
+  />
+  <Image
+    alt="Landing page pokedex image"
+    className="object-cover min-h-full min-w-full rounded-lg aspect-video hidden md:block"
+    height={1080}
+    width={1920}
+    src="/pokedex.jpeg"
+  />  
+  {/* <div className=" flex items-center justify-center absolute inset-0">
+    <Suspense fallback={<PokemonCarouselSqueleton />}>
+      <PokemonCarousel />
+    </Suspense>
+  </div> */}
+```
+
 ## Crear páginas y layouts
 
 La aplicacion solo tiene landing page por ahora. En esta sección aprenderás a crear rutas anidadas.
@@ -148,7 +172,7 @@ Para crear la ruta pokedex, creamos una carpeta llamada "pokedex dentro de "/app
 
 ```
 export default function Page() {
-  return <p>Pokedex Page</p>;
+  return <p>Pokedex Page</p>
 }
 ```
 
@@ -160,9 +184,9 @@ Al tener un nombre especial para los archivos de página, Next.js te permite col
 
 ### Crear la ruta Pokedex/[pokedex_number] (dinámica)
 
-ya has aprendido a crear una ruta estática pero para ver en detalle cada uno de los pokemon vamos a crear una ruta dinámica que usara dinamicamente los route params (pokedex_number) para fechear el pokemon que queremos.
+Ya has aprendido a crear una ruta estática pero para ver en detalle cada uno de los pokemon vamos a crear una ruta dinámica que usara dinamicamente los route params (pokedex_number) para fechear el pokemon que queremos.
 
-creamos una carpeta llamada "[pokedex_number]" dentro de /app/pokedex y añadimos el archivo page.tsx con el siguiente contenido:
+Creamos una carpeta llamada "[pokedex_number]" dentro de /app/pokedex y añadimos el archivo page.tsx con el siguiente contenido:
 
 ```
 type PokemonPageProps = {
@@ -183,7 +207,7 @@ Las webs suelen tener elementos que se comparten entre varias páginas. En Next.
 Dentro de /app/pokedex crea el archivo layout.tsx y pega el siguiente código
 
 ```
-import SideNav from "../ui/SideNav";
+import SideNav from "../ui/SideNav"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -193,7 +217,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
       <div className="grow p-6 md:overflow-y-auto">{children}</div>
     </div>
-  );
+  )
 }
 ```
 
@@ -224,6 +248,15 @@ Además, en producción, cada vez que aparecen componentes <Link> en la ventana 
 ### Añadir active links
 
 Utilizando el hook usePatname() de "next/navigation" podemos ver que ruta es la que tenemos activa actualmente, como ahora estamos usando un hook en el componente SideNav significa que no se va  poder renderizar en el servidor porque necesitamos que cargue ese js en el cliente asi que pondremos la directiva "use client" en este componente.
+
+
+```
+import { usePathname } from 'next/navigation'
+
+const pathname = usePathname()
+
+${pathname === link.href ? "bg-sky-100 text-black" : "bg-gray-800 text-white"}
+```
 
 ## Configurar tu base de datos
 
@@ -290,7 +323,7 @@ Puedes pasar a la pestaña "query" para interactuar con tu base de datos. Esta s
 Vamos a ejecutar tu primera consulta a la base de datos. Pega y ejecuta el siguiente código SQL en la interfaz de Vercel:
 
 ``` 
-SELECT * FROM pokemon where type_1 ILIKE '%ego%';
+SELECT * FROM pokemon where type_1 ILIKE '%ego%'
 ```
 
 ## Fetch de datos
@@ -480,7 +513,7 @@ Puedes usar una API de Next.js llamada unstable_noStore dentro de tus componente
 
 En tu querys.ts, importa unstable_noStore de next/cache, y llámalo al principio de tus funciones de obtención de datos:
 
-```import { unstable_noStore as noCache } from 'next/cache';```
+```import { unstable_noStore as noCache } from 'next/cache'```
 
 ### Simulando slow data fetch
 
@@ -495,7 +528,7 @@ Con el renderizado dinámico, tu aplicación es tan rápida como la obtención d
 Vamos a aprender a manejar estados de carga creando un archivo loading.tsx en el directorio '/app/pokedex'
 
 ```
-import { PokemonTableSqueleton } from "@/app/ui/Squeletons";
+import { PokemonTableSqueleton } from "@/app/ui/Squeletons"
 
 export default function Loading() {
     return <PokemonTableSqueleton/>
@@ -507,7 +540,7 @@ Con esto el usuario podra seguir interactuando con la aplicacion y solo los comp
 Vamos a hacer lo mismo en /pokedex/[pokedex_number]
 
 ```
-import { PokemonScreenSqueleton } from "@/app/ui/Squeletons";
+import { PokemonScreenSqueleton } from "@/app/ui/Squeletons"
 
 
 export default function Loading() {
@@ -540,13 +573,13 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
  - Capturando el input del usuario 
   ```
     function handleSearch(term: string) {
-      console.log(term);
+      console.log(term)
     }
   
     <input
         ...
       onChange={(e) => {
-        handleSearch(e.target.value);
+        handleSearch(e.target.value)
       }}
     />
   ```
@@ -555,12 +588,12 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
   
   Importa 'useSearchParams' de 'next/navigation' y dentro del Handle search crea una instancia de URLSearchParam usando la variable searchParams 
   ```
-    import { useSearchParams } from 'next/navigation';
+    import { useSearchParams } from 'next/navigation'
 
-    const searchParams = useSearchParams();
+    const searchParams = useSearchParams()
 
     function handleSearch(term: string) {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams(searchParams)
     }
 
   ```
@@ -571,9 +604,9 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
 
   ```
   if (term) {
-    params.set('query', term);
+    params.set('query', term)
   } else {
-    params.delete('query');
+    params.delete('query')
   }
   ```
 
@@ -603,7 +636,7 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
   Al final el componente quedara algo así
 
   ```
-  'use client';
+  'use client'
 
   import { usePathname, useRouter, useSearchParams } from 'next/navigation'
   import { Search } from 'lucide-react'
@@ -633,7 +666,7 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
           className="peer block w-full rounded-md border font-medium border-gray-200 py-[9px] pl-10 text-md outline-2 placeholder:text-gray-500"
           placeholder={placeholder || 'Buscar'}
           onChange={(e) => {
-            handleSearch(e.target.value);
+            handleSearch(e.target.value)
           }}
           defaultValue={searchParams.get('query')?.toString()}
         />
@@ -659,9 +692,9 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
 
   type PokedexPageProps = {
     searchParams?: {
-      query?: string;
-      page?: string;
-    };
+      query?: string
+      page?: string
+    }
   }
 
   export default async function Page({ searchParams }: PokedexPageProps) {
@@ -692,7 +725,7 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
 
   Estado final de 'app/ui/SearchInput.tsx
   ```
-  'use client';
+  'use client'
 
   import { usePathname, useRouter, useSearchParams } from 'next/navigation'
   import { useDebouncedCallback } from 'use-debounce'
@@ -728,7 +761,7 @@ Hay un par de beneficios de implementar la búsqueda con URL params:
           placeholder={placeholder || 'Buscar'}
           onChange={(e) => {
             console.log(e.target.value)
-            handleSearch(e.target.value);
+            handleSearch(e.target.value)
           }}
           defaultValue={searchParams.get('query')?.toString()}
         />
@@ -754,8 +787,8 @@ En /pokedex/page.tsx, importa una nueva función llamada fetchPokemonPages y pas
 import { fetchPokemonPages } from '@/app/lib/querys'
 
 const query = searchParams?.query || ''
-const currentPage = Number(searchParams?.page) || 1;
-const totalPages = await fetchPokemonPages(query);
+const currentPage = Number(searchParams?.page) || 1
+const totalPages = await fetchPokemonPages(query)
 ```
 
 fetchPokemonPages devuelve el número total de páginas basadas en la consulta de búsqueda. Por ejemplo, si hay 12 pokemon que coinciden con la consulta de búsqueda, y cada página muestra 6 facturas, entonces el número total de páginas sería 2.
@@ -778,17 +811,17 @@ import { generatePagination } from '@/app/lib/utils'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || 1;
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const currentPage = Number(searchParams.get('page')) || 1
 
   const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set('page', pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
+    const params = new URLSearchParams(searchParams)
+    params.set('page', pageNumber.toString())
+    return `${pathname}?${params.toString()}`
+  }
 
-  const allPages = generatePagination(currentPage, totalPages);
+  const allPages = generatePagination(currentPage, totalPages)
 
   return (
     <div className="inline-flex">
@@ -800,12 +833,12 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
       <div className="flex -space-x-px">
         {allPages.map((page, index) => {
-          let position: 'first' | 'last' | 'single' | 'middle' | undefined;
+          let position: 'first' | 'last' | 'single' | 'middle' | undefined
 
-          if (index === 0) position = 'first';
-          if (index === allPages.length - 1) position = 'last';
-          if (allPages.length === 1) position = 'single';
-          if (page === '...') position = 'middle';
+          if (index === 0) position = 'first'
+          if (index === allPages.length - 1) position = 'last'
+          if (allPages.length === 1) position = 'single'
+          if (page === '...') position = 'middle'
 
           return (
             <PaginationNumber
@@ -815,7 +848,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
               position={position}
               isActive={currentPage === page}
             />
-          );
+          )
         })}
       </div>
 
@@ -825,7 +858,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
         isDisabled={currentPage >= totalPages}
       />
     </div>
-  );
+  )
 }
 
 function PaginationNumber({
@@ -834,10 +867,10 @@ function PaginationNumber({
   isActive,
   position,
 }: {
-  page: number | string;
-  href: string;
-  position?: 'first' | 'last' | 'middle' | 'single';
-  isActive: boolean;
+  page: number | string
+  href: string
+  position?: 'first' | 'last' | 'middle' | 'single'
+  isActive: boolean
 }) {
   const className = `flex h-10 w-10 items-center justify-center text-sm border
     ${position === 'first' || position === 'single' ? ' rounded-l-md ' : ""}
@@ -845,8 +878,7 @@ function PaginationNumber({
     ${isActive ? ' z-10 bg-blue-600 border-blue-600 text-white ' : ""}
     ${!isActive && position !== 'middle' ? ' hover:bg-gray-100 ' : ""}
     ${position === 'middle' ? ' text-gray-300 ' : ""}`
-    
-  ;
+  
 
   return isActive || position === 'middle' ? (
     <div className={className}>{page}</div>
@@ -854,7 +886,7 @@ function PaginationNumber({
     <Link href={href} className={className}>
       {page}
     </Link>
-  );
+  )
 }
 
 function PaginationArrow({
@@ -862,9 +894,9 @@ function PaginationArrow({
   direction,
   isDisabled,
 }: {
-  href: string;
-  direction: 'left' | 'right';
-  isDisabled?: boolean;
+  href: string
+  direction: 'left' | 'right'
+  isDisabled?: boolean
 }) {
   const className = `flex h-10 w-10 items-center justify-center rounded-md border
        ${!!isDisabled && ' pointer-events-none text-gray-300 '}
@@ -879,7 +911,7 @@ function PaginationArrow({
       <StepBackIcon className="w-4" />
     ) : (
       <StepForwardIcon className="w-4" />
-    );
+    )
 
   return isDisabled ? (
     <div className={className}>{icon}</div>
@@ -887,7 +919,7 @@ function PaginationArrow({
     <Link className={className} href={href}>
       {icon}
     </Link>
-  );
+  )
 }
 ```
 
@@ -899,7 +931,7 @@ function PaginationArrow({
 
 import { sql } from '@vercel/postgres'
 import { Pokemon } from "./types"
-import { unstable_noStore as noCache } from 'next/cache';
+import { unstable_noStore as noCache } from 'next/cache'
 
 
 export async function fetchAllPokemon() {
@@ -907,16 +939,16 @@ export async function fetchAllPokemon() {
 
   try {
 
-    console.log('Fetching all pokemon data...');
+    console.log('Fetching all pokemon data...')
     // ! No hacer en produción
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 3000))
 
-    const data = await sql<Pokemon>`SELECT * FROM pokemon ORDER BY pokedex_number ASC`;
+    const data = await sql<Pokemon>`SELECT * FROM pokemon ORDER BY pokedex_number ASC`
 
-    return data.rows;
+    return data.rows
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch pokemons data.');
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch pokemons data.')
   }
 }
 
@@ -924,28 +956,28 @@ export async function fetchPokemonByPokedexNumber(pokedex_number: number) {
   noCache()
 
   try {
-    console.log(`Fetching pokemon ${pokedex_number} data...\`);
+    console.log(`Fetching pokemon ${pokedex_number} data...\`)
 
-    const data = await sql<Pokemon>`SELECT * FROM pokemon WHERE pokedex_number = ${pokedex_number}`;
+    const data = await sql<Pokemon>`SELECT * FROM pokemon WHERE pokedex_number = ${pokedex_number}`
 
-    return data.rows[0];
+    return data.rows[0]
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error(`Failed to fetch pokemon ${pokedex_number} data.`);
+    console.error('Database Error:', error)
+    throw new Error(`Failed to fetch pokemon ${pokedex_number} data.`)
   }
 }
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 6
 
 export async function fetchFilteredPokemons(
   query: string,
   currentPage: number,
 ) {
-  noCache();
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  noCache()
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE
 
   try {
-    console.log(`Fetching filtered pokemon data ${query}...`);
+    console.log(`Fetching filtered pokemon data ${query}...`)
 
     const pokemon = await sql<Pokemon>`
     SELECT * FROM pokemon WHERE 
@@ -953,17 +985,17 @@ export async function fetchFilteredPokemons(
       type_1 LIKE ${`%${query}%`} OR
       type_2 ILIKE ${`%${query}%`}
       ORDER BY pokedex_number ASC
-      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`;
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}`
     
-    return pokemon.rows;
+    return pokemon.rows
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error(`Failed to fetch pokemons.`);
+    console.error('Database Error:', error)
+    throw new Error(`Failed to fetch pokemons.`)
   }
 }
 
 export async function fetchPokemonPages(query: string) {
-  noCache();
+  noCache()
   try {
     const count = await sql`SELECT COUNT(*)
     FROM pokemon
@@ -971,13 +1003,13 @@ export async function fetchPokemonPages(query: string) {
       name ILIKE ${`%${query}%`} OR
       type_1 ILIKE ${`%${query}%`} OR
       type_2 ILIKE ${`%${query}%`}
-  `;
-
-    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
-    return totalPages;
+  `
+  
+    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE)
+    return totalPages
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch total number of pokemons.');
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch total number of pokemons.')
   }
 }
 ```
@@ -988,7 +1020,7 @@ Ahora, vamos a comprobar lo que ocurre cuando se produce un error en la acción 
 
 ```
 export async function fetchPokemonByPokedexNumber(pokedex_number: number) {
-  throw new Error('Failed to fech Pokemon');
+  throw new Error('Failed to fech Pokemon')
 ```
 
 ### Manejando errores con error.tsx
@@ -998,21 +1030,21 @@ El archivo error.tsx puede utilizarse para definir un límite de interfaz de usu
 Dentro de la carpeta /pokedex/[pokedex_number], cree un nuevo archivo llamado error.tsx y pega el siguiente código:
 
 ```
-'use client';
+'use client'
  
-import { useEffect } from 'react';
+import { useEffect } from 'react'
  
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string };
-  reset: () => void;
+  error: Error & { digest?: string }
+  reset: () => void
 }) {
 
   useEffect(() => {
-    console.error(error);
-  }, [error]);
+    console.error(error)
+  }, [error])
  
   return (
     <main className="flex h-1/2 flex-col items-center justify-center">
@@ -1026,7 +1058,7 @@ export default function Error({
         Reintentar
       </button>
     </main>
-  );
+  )
 }
 ```
 
@@ -1056,10 +1088,10 @@ Puedes confirmar que el recurso no ha sido encontrado entrando en tu función fe
 A continuación, puede utilizar un condicional para invocar notFound si la factura no existe:
 
 ```
-import { notFound } from 'next/navigation';
+import { notFound } from 'next/navigation'
 
 if (!data.rows[0]) {
-  notFound();
+  notFound()
 }
 ```
 
@@ -1067,8 +1099,8 @@ Perfecto. \<Page> ahora lanzará un error si no se encuentra un pokemon específ
 
 
 ```
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function NotFound() {
   return (
@@ -1088,7 +1120,7 @@ export default function NotFound() {
         Volver a Pokedex
       </Link>
     </main>
-  );
+  )
 }
 ```
 Recarga la ruta para ver los cambios
