@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 
 type PokedexPageProps = {
   searchParams?: {
-    query?: string;
-    page?: string;
-  };
+    query?: string
+    page?: string
+  }
 }
 
 export default async function Page({ searchParams }: PokedexPageProps) {
 
   const query = searchParams?.query || ''
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = await fetchPokemonPages(query);
+  const totalPages = await fetchPokemonPages(query)
 
   return (
     <div className='flex flex-col gap-4'>

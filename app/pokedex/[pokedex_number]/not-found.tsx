@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function NotFound() {
   return (
@@ -19,5 +19,5 @@ export default function NotFound() {
         Volver a Pokedex
       </Link>
     </main>
-  );
+  )
 }

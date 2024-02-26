@@ -1,5 +1,5 @@
-import { ArrowBigLeft } from "lucide-react";
-import Link from "next/link";
+import { ArrowBigLeft } from "lucide-react"
+import Link from "next/link"
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {

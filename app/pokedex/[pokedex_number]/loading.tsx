@@ -1,4 +1,4 @@
-import { PokemonScreenSqueleton } from "@/app/ui/Squeletons";
+import { PokemonScreenSqueleton } from "@/app/ui/Squeletons"
 
 
 export default function Loading() {

@@ -1,4 +1,4 @@
-import SideNav from "../ui/SideNav";
+import SideNav from "../ui/SideNav"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,5 +8,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
       <div className="grow p-6 md:overflow-y-auto w-full">{children}</div>
     </div>
-  );
+  )
 }

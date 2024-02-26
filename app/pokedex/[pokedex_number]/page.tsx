@@ -1,12 +1,3 @@
-
-// type PokemonPageProps = {
-//   params: { pokedex_number: number }
-// }
-
-// export default async function Page({ params }: PokemonPageProps) {
-//     return <p>{params.pokedex_number}</p>
-// }
-
 import { fetchPokemonByPokedexNumber } from "@/app/lib/querys"
 import TypeTag from "@/app/ui/TypeTag"
 import Image from "next/image"
